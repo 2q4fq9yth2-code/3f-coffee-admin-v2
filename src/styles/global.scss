@@ -1,0 +1,310 @@
+// ==========================================
+// 三楼咖啡 · 管理后台全局样式
+// 设计系统：淡紫清新植物风 · 扁平手绘风
+// ==========================================
+
+:root {
+  // 色彩系统
+  --color-bg: #f5f3f0;
+  --color-bg-card: #ffffff;
+  --color-bg-sidebar: #2d2438;
+  --color-bg-sidebar-hover: #3d3248;
+  --color-bg-sidebar-active: #4a3d5c;
+
+  --color-primary: #9b7bb8;
+  --color-primary-light: #e8dff0;
+  --color-primary-dark: #7b5b98;
+
+  --color-accent: #c4a7d7;
+  --color-success: #6aab8e;
+  --color-warning: #e8a87c;
+  --color-danger: #d4736a;
+  --color-info: #7ba8c4;
+
+  --color-text: #2a2a2a;
+  --color-text-secondary: #6b6572;
+  --color-text-light: #9995a3;
+  --color-text-sidebar: #c9c2d4;
+
+  --color-border: #e8e0ee;
+  --color-border-light: #f0ecf5;
+
+  // 字体
+  --font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, sans-serif;
+
+  // 圆角
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  // 阴影（轻量扁平风）
+  --shadow-sm: 0 1px 3px rgba(45, 36, 56, 0.06);
+  --shadow-md: 0 2px 8px rgba(45, 36, 56, 0.08);
+
+  // 过渡
+  --transition: all 0.2s ease;
+}
+
+// 重置
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #app {
+  height: 100%;
+  font-family: var(--font-family);
+  font-size: 14px;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ==========================================
+// Element Plus 主题覆盖
+// ==========================================
+
+// 侧边栏深色主题
+.el-menu {
+  border-right: none !important;
+  background: transparent !important;
+}
+
+.el-menu--vertical:not(.el-menu--collapse) {
+  width: 200px;
+}
+
+.el-menu-item,
+.el-sub-menu__title {
+  color: var(--color-text-sidebar) !important;
+  border-radius: var(--radius-sm);
+  margin: 2px 8px;
+  transition: var(--transition);
+
+  &:hover {
+    background: var(--color-bg-sidebar-hover) !important;
+    color: #ffffff !important;
+  }
+
+  &.is-active {
+    background: var(--color-bg-sidebar-active) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 60%;
+      background: var(--color-primary);
+      border-radius: 0 2px 2px 0;
+    }
+  }
+}
+
+// 按钮主题
+.el-button--primary {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+
+  &:hover, &:focus {
+    background: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+  }
+}
+
+// 卡片
+.el-card {
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+// 表格
+.el-table {
+  --el-table-border-color: var(--color-border-light);
+  --el-table-header-bg-color: var(--color-primary-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  th.el-table__cell {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+}
+
+// 标签
+.el-tag {
+  border-radius: var(--radius-sm) !important;
+}
+
+// 输入框
+.el-input__wrapper {
+  border-radius: var(--radius-sm) !important;
+}
+
+// 分页
+.el-pagination {
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+// ==========================================
+// 通用工具类
+// ==========================================
+
+// 页面容器
+.page-container {
+  padding: 20px 24px;
+  min-height: calc(100vh - 60px);
+}
+
+// 页面标题区
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .page-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+  }
+}
+
+// 统计卡片网格
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+// 统计卡片
+.stat-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-light);
+  }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+
+    &.primary { background: var(--color-primary-light); color: var(--color-primary); }
+    &.success { background: #e8f5f0; color: var(--color-success); }
+    &.warning { background: #fef3ec; color: var(--color-warning); }
+    &.danger  { background: #fceaea; color: var(--color-danger); }
+    &.info    { background: #ecf4f9; color: var(--color-info); }
+  }
+
+  .stat-info {
+    flex: 1;
+    min-width: 0;
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin-top: 4px;
+    }
+
+    .stat-trend {
+      font-size: 12px;
+      margin-top: 4px;
+
+      &.up { color: var(--color-success); }
+      &.down { color: var(--color-danger); }
+    }
+  }
+}
+
+// 卡片区块
+.card-section {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+// 空状态
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--color-text-light);
+
+  .empty-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.5;
+  }
+
+  .empty-text {
+    font-size: 14px;
+  }
+}
+
+// 订单状态标签
+.order-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+
+  &.pending    { background: #fef3ec; color: #d4884a; }
+  &.paid       { background: #e8f5f0; color: #4aab6e; }
+  &.preparing  { background: #ecf4f9; color: #5a9abf; }
+  &.ready      { background: #e8dff0; color: #8b5bb0; }
+  &.completed  { background: #f0ecf5; color: #6b6572; }
+  &.cancelled  { background: #fceaea; color: #c45550; }
+  &.refunded   { background: #fceaea; color: #a04040; }
+}
+
+// 金额显示
+.amount {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+
+  &.positive { color: var(--color-success); }
+  &.negative { color: var(--color-danger); }
+}
